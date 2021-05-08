@@ -9,14 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value ="/blog-collection")
 public class BlogCollectionController {
 
-  private BlogCollectionService blogCollectionService;
+  private final BlogCollectionService blogCollectionService;
 
   public BlogCollectionController(BlogCollectionService blogCollectionService) {
     this.blogCollectionService = blogCollectionService;
   }
 
   @GetMapping("/")
-  public String test() {
-    return blogCollectionService.test();
+  public IllegalArgumentException test() {
+    IllegalArgumentException exception = new  IllegalArgumentException("abc");
+    return exception;
+//    return blogCollectionService.test();
   }
 }
